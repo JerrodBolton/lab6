@@ -246,12 +246,19 @@ let LimaLocation = {
     unorderedList.appendChild(listItem);
   },
 };
-
-seattleLocation.make();
-tokyoLocation.make();
-dubaiLocation.make();
-ParisLocation.make();
-LimaLocation.make(); 
+// Make a array where all locations will be
+let eLocations =[seattleLocation,tokyoLocation,dubaiLocation,ParisLocation,LimaLocation]
+// Go though every location call make to write on your HTML 
+ for (let index = 0; index < eLocations.length; index++) {
+   eLocations[index].make();
+  //  console.log("What is today");
+ }
+ 
+// seattleLocation.make();
+// tokyoLocation.make();
+// dubaiLocation.make();
+// ParisLocation.make();
+// LimaLocation.make(); 
 
 
 
