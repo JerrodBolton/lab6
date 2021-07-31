@@ -196,7 +196,7 @@ let parisLocation = {
     let newTable = document.getElementById("table");
     let newRow = document.createElement("tr");
     let newCell = document.createElement("td");
-    newCell.textContent = "Paris ";
+    newCell.textContent = "Paris";
     newRow.appendChild(newCell);
     for (let d = 0; d < hoursOfBiz.length; d++) {
       // const aDream = document.getElementById("table");
@@ -251,7 +251,7 @@ let limaLocation = {
     let newTable = document.getElementById("table");
     let newRow = document.createElement("tr");
     let newCell = document.createElement("td");
-    newCell.textContent = "lima";
+    newCell.textContent = "Lima";
     newRow.appendChild(newCell);
     for (let d = 0; d < hoursOfBiz.length; d++) {
       // const aDream = document.getElementById("table");
@@ -305,7 +305,7 @@ let dubaiLocation = {
     let newTable = document.getElementById("table");
     let newRow = document.createElement("tr");
     let newCell = document.createElement("td");
-    newCell.textContent = "dubai";
+    newCell.textContent = "Dubai";
     newRow.appendChild(newCell);
     for (let d = 0; d < hoursOfBiz.length; d++) {
       // const aDream = document.getElementById("table");
