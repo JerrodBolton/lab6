@@ -91,7 +91,16 @@ let seattleLocation = {
       newRow.appendChild(newCell);
     
     }
+  
+  
+   
+    let newCellT = document.createElement("td");
+    newCellT.textContent = this.totalSoldPerDay;
+    newRow.appendChild(newCellT);
+    
+
    newTable.appendChild(newRow)
+   
   },
 };
 
@@ -143,6 +152,11 @@ let tokyoLocation = {
     
     }
    newTable.appendChild(newRow)
+
+
+   let newCellT = document.createElement("td");
+   newCellT.textContent = this.totalSoldPerDay;
+   newRow.appendChild(newCellT);
   },
 };
 
@@ -194,7 +208,12 @@ let parisLocation = {
     
     }
    newTable.appendChild(newRow)
+
+   let newCellT = document.createElement("td");
+   newCellT.textContent = this.totalSoldPerDay;
+   newRow.appendChild(newCellT);
   },
+  
 };
 let limaLocation = {
   //identify props
@@ -244,6 +263,10 @@ let limaLocation = {
     
     }
    newTable.appendChild(newRow)
+
+   let newCellT = document.createElement("td");
+   newCellT.textContent = this.totalSoldPerDay;
+   newRow.appendChild(newCellT);
   },
 };
 let dubaiLocation = {
@@ -294,6 +317,10 @@ let dubaiLocation = {
     
     }
    newTable.appendChild(newRow)
+
+   let newCellT = document.createElement("td");
+   newCellT.textContent = this.totalSoldPerDay;
+   newRow.appendChild(newCellT);
   },
 
 }
