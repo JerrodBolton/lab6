@@ -1,62 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="home.css" />
     <title>Document</title>
-</head>
-<body>
-
-    <img src="salmon.jpg" alt= "salmon picture" width="100px">
-    <img src="salmon.jpg" alt= "salmon picture" width="100px">
-    <img src="salmon.jpg" alt= "salmon picture" width="100px">
-    <img src="salmon.jpg" alt= "salmon picture" width="100px">
-    
-    
-    <div class ="header">
-        <header>
+  </head>
+  <body>
+    <div class="top">
+      <img src="img/salmon.jpg" alt="salmon picture" width="250px" />
+      <img src="img/salmon.jpg" alt="salmon picture" width="250px" />
+      <img src="img/salmon.jpg" alt="salmon picture" width="250px" />
+      <img src="img/salmon.jpg" alt="salmon picture" width="250px" />
+  </div>
+    <div class="header">
+      <header>
         <nav>
-                <a href = "index.html"> Home page </a>
-    
-                <a href= "sales.html"> Sale page </a>
+          <a href="index.html"> Home page </a>
+
+          <a href="sales.html"> Sale page </a>
         </nav>
-    </header>
+      </header>
     </div>
 
-    <h1> The Sale Page</h1>
 
-<table id = "table">
-    <tr>
-        <td> Time & Location</td>
-        <td>6:00am</td>
-        <td>7:00am</td>
-        <td>8:00am</td>
-        <td>9:00am</td>
-        <td>10:00am</td>
-        <td>11:00am</td>
-        <td>12:00pm</td>
-        <td>1:00pm</td>
-        <td>2:00pm</td>
-        <td>3:00pm</td>
-        <td>4:00pm</td>
-        <td>5:00pm</td>
-        <td>6:00pm</td>
-        <td>7:00pm</td>
-        <td>8:00pm</td>
-        <td>Total</td>
-    </tr>
-</table>
-<footer>
-    <a>Phone Number: (901)555-5555</a>
-    <a>Email: CookiesFich@gmail.com</a>
-    <a>Instagram: FishCookies</a>
-</footer>
-<img src="salmon.jpg" alt="salmon picture" width="100px" />
-<img src="salmon.jpg" alt="salmon picture" width="100px" />
-<img src="salmon.jpg" alt="salmon picture" width="100px" />
-<img src="salmon.jpg" alt="salmon picture" width="100px" />
- <script src ="salmon.js"></script>
-</body>
+    <h1>The Sale Page</h1>
+
+    <form id ="cityMaker">
+      <fieldset>
+        <legend> Enter city info below! Thanks!! </legend>
+        <label> City Name </label>
+        <input name="nameOfL" type="text">
+        <label>Min Customers</label>
+        <input name="minC" type="text">
+        <label>Max Customers</label>
+        <input name="maxC" type= "text">
+        <label>Average Cookies</label>
+        <input name="avgCookieSale" type="text">
+      </fieldset>
+      <button type="submit"> Submit </button>
+      <button type="reset"> Clear data </button>
+    </form>
+
+    <div class="table">
+      <table id="table" border="2">
+        <!-- <tr>
+          <td>Time & Location</td>
+          <td>6:00am</td>
+          <td>7:00am</td>
+          <td>8:00am</td>
+          <td>9:00am</td>
+          <td>10:00am</td>
+          <td>11:00am</td>
+          <td>12:00pm</td>
+          <td>1:00pm</td>
+          <td>2:00pm</td>
+          <td>3:00pm</td>
+          <td>4:00pm</td>
+          <td>5:00pm</td>
+          <td>6:00pm</td>
+          <td>7:00pm</td>
+          <td>8:00pm</td>
+          <td>Total</td>
+        </tr> -->
+      </table>
+    </div>
+    <footer>
+      <a>Phone Number: (901)555-5555</a>
+      <a>Email: CookiesFich@gmail.com</a>
+      <a>Instagram: FishCookies</a>
+    </footer>
+    <div class="top">
+      <img src="img/salmon.jpg" alt="salmon picture" width="250px" />
+      <img src="img/salmon.jpg" alt="salmon picture" width="250px" />
+      <img src="img/salmon.jpg" alt="salmon picture" width="250px" />
+      <img src="img/salmon.jpg" alt="salmon picture" width="250px" />
+  </div>
+    <script src="salmon.js"></script>
+  </body>
 </html>

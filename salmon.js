@@ -4,6 +4,7 @@ function randomNumber(minC, maxC) {
 }
 
 const hoursOfBiz = [
+  // "HOB",
   "6am",
   "7am",
   "8am",
@@ -19,317 +20,155 @@ const hoursOfBiz = [
   "6pm",
   "7pm",
   "8pm",
-];
-//I put this here because I do not want it in my object
+];  
+ let newTable = document.getElementById("table");
+// I put this here because I do not want it in my object
 //  On lines 25-36 when I make
-//   function LocationCS(  nameOfL, minC, maxC , avgCookieSale,) {
-//     this.nameOfL= nameOfL;
-//     this.minC= minC;
-//     this.maxC = maxC;
-//     this.avgCookieSale= avgCookieSale;
-//     this.CPH =[];//Customers per hour
-//     this.CSPH = []; //Cookies so per hours
-//     this.totalSoldPerDay = 0,
-// // the Number don't need to be in "" b/c there number .
-// //  I'm making a new Object for the location specified.
+  function LocationCS( nameOfL, minC, maxC , avgCookieSale,) {
+    this.nameOfL= nameOfL;
+    this.minC= minC;
+    this.maxC = maxC;
+    this.avgCookieSale = avgCookieSale;
+    this.cPH =[];//Customers per hour
+    this.cSPH = []; //Cookies so per hours
+    this.totalSoldPerDay = 0;
+  }
 
-// let Location = [
-//       new LocationCS("seattle",23,65,6.3),
-//       new LocationCS("tokyo",3, 24,1.2),
-//       new LocationCS("dubai",11,38,3.7),
-//       new LocationCS("paris",20,38,2.3),
-//       new LocationCS("lima",2,16,46)
-// ];
+// the Number don't need to be in "" b/c there number .
+//  I'm making a new Object for the location specified.
+  
+  // ====================== our methods using the .prototype  =============================//
 
-//   }
-// console.log(seattle);
-
-let seattleLocation = {
-  //identify props
-  minC: 23,
-  maxC: 65,
-  avgCookieSale: 6.3,
-  cPH: [], //Customers per hour
-  cSPH: [], //Cookies so per hours
-  totalSoldPerDay: 0,
-
-  // how many people should we expects.
-  // this is step Number 1
-  theRandomCE: function () {
-    for (let j = 0; j < hoursOfBiz.length; j++) {
+  LocationCS.prototype.theRandomCE = function () {
+    for (let i = 0;  i < hoursOfBiz.length; i++) {
       this.cPH.push(randomNumber(this.minC, this.maxC));
       // this. means that it's getting form the object
       // pash is going to push the random # (it mean store the arrays )
     }
     // console.log(this.CPH);
-  },
-  getTheCookiesSPH: function () {
+  };
+
+
+  LocationCS.prototype.getTheCookiesSPH = function () {
     this.theRandomCE();
-    for (let b = 0; b < hoursOfBiz.length; b++) {
-      let todayCookies = Math.floor(this.cPH[b] * this.avgCookieSale);
+    for (let i = 0; i < hoursOfBiz.length; i++) {
+      let todayCookies = Math.floor(this.cPH[i] * this.avgCookieSale);
       this.cSPH.push(todayCookies);
       // add to th total
       this.totalSoldPerDay += todayCookies;
     }
 
     // console.log( this.cSPH)
-  },
+  };
 
-  make() {
+  LocationCS.prototype.make = function() {
     this.getTheCookiesSPH();
-    let newTable = document.getElementById("table");
-    let newRow = document.createElement("tr");
+    //  I don't think that I need a id in the html 
+ 
+  
+    const newRow = document.createElement("tr");
     let newCell = document.createElement("td");
-    newCell.textContent = "Settle";
+    newCell.textContent = this.nameOfL;
+    
+    console.log(this.nameOfL);
+    
     newRow.appendChild(newCell);
-    for (let d = 0; d < hoursOfBiz.length; d++) {
+    for (let i = 0; i < hoursOfBiz.length; i++) {
       // const aDream = document.getElementById("table");
       // let newRow = document.createElement("tr");
-      let newCell = document.createElement("td");
-      newCell.appendChild(newRow);
-      newCell.textContent = this.cSPH[d];
+      newCell = document.createElement("td");
+      // newCell.appendChild(newRow);
+      newCell.textContent = this.cSPH[i];
       newRow.appendChild(newCell);
     
     }
-  
-  
+
+    newRow.append(this.totalSoldPerDay);
+    newTable.appendChild(newRow);
+  };
+
+
+
+let Location = [
+      new LocationCS("Seattle",23,65,2.3),
+      new LocationCS("Tokyo",3, 24,1.2),
+      new LocationCS("Dubai",11,38,3.7),
+      new LocationCS("Paris",20,38,2.3),
+      new LocationCS("Lima",2,16,4.6)
+];
+
+function headerMaker(){
+
+ const hourRow = document.createElement("tr");
+ let hourRowDate = document.createElement("th");
+ hourRowDate.textContent = "";
+hourRow.appendChild(hourRowDate);
+
+ for (let i = 0; i < hoursOfBiz.length; i++) {
    
-    let newCellT = document.createElement("td");
-    newCellT.textContent = this.totalSoldPerDay;
-    newRow.appendChild(newCellT);
-    
+   hourRowDate = document.createElement("td");
+   hourRowDate.textContent = hoursOfBiz[i];
+   hourRow.appendChild(hourRowDate);
+ }
+ hourRowDate = document.createElement("td");
+ hourRowDate.textContent = "Daily Total";
+ hourRow.appendChild(hourRowDate);
+ newTable.appendChild(hourRow);
 
-   newTable.appendChild(newRow)
-   
-  },
-};
+ }
 
-let tokyoLocation = {
-  //identify props
-  minC: 3,
-  maxC: 24,
-  avgCookieSale: 1.2,
-  cPH: [], //Customers per hour
-  cSPH: [], //Cookies so per hours
-  totalSoldPerDay: 0,
+ headerMaker();
+ for (let i = 0; i < Location.length; i++) {
+   Location[i].make();  
+ }
+//   put the footRow up here
+makeFooterRow();
 
-  // how many people should we expects.
-  // this is step Number 1
-  theRandomCE: function () {
-    for (let j = 0; j < hoursOfBiz.length; j++) {
-      this.cPH.push(randomNumber(this.minC, this.maxC));
-      // this. means that it's getting form the object
-      // pash is going to push the random # (it mean store the arrays )
-    }
-    // console.log(this.CPH);
-  },
-  getTheCookiesSPH: function () {
-    this.theRandomCE();
-    for (let b = 0; b < hoursOfBiz.length; b++) {
-      let todayCookies = Math.floor(this.cPH[b] * this.avgCookieSale);
-      this.cSPH.push(todayCookies);
-      // add to th total
-      this.totalSoldPerDay += todayCookies;
-    }
-
-    // console.log( this.cSPH)
-  },
-
-  make() {
-    this.getTheCookiesSPH();
-    let newTable = document.getElementById("table");
-    let newRow = document.createElement("tr");
-    let newCell = document.createElement("td");
-    newCell.textContent = "Tokyo";
-    newRow.appendChild(newCell);
-    for (let d = 0; d < hoursOfBiz.length; d++) {
-      // const aDream = document.getElementById("table");
-      // let newRow = document.createElement("tr");
-      let newCell = document.createElement("td");
-      newCell.appendChild(newRow);
-      newCell.textContent = this.cSPH[d];
-      newRow.appendChild(newCell);
-    
-    }
-   newTable.appendChild(newRow)
-
-
-   let newCellT = document.createElement("td");
-   newCellT.textContent = this.totalSoldPerDay;
-   newRow.appendChild(newCellT);
-  },
-};
-
-let parisLocation = {
-  //identify props
-  minC: 20,
-  maxC: 38,
-  avgCookieSale: 2.3,
-  cPH: [], //Customers per hour
-  cSPH: [], //Cookies so per hours
-  totalSoldPerDay: 0,
-
-  // how many people should we expects.
-  // this is step Number 1
-  theRandomCE: function () {
-    for (let j = 0; j < hoursOfBiz.length; j++) {
-      this.cPH.push(randomNumber(this.minC, this.maxC));
-      // this. means that it's getting form the object
-      // pash is going to push the random # (it mean store the arrays )
-    }
-    // console.log(this.CPH);
-  },
-  getTheCookiesSPH: function () {
-    this.theRandomCE();
-    for (let b = 0; b < hoursOfBiz.length; b++) {
-      let todayCookies = Math.floor(this.cPH[b] * this.avgCookieSale);
-      this.cSPH.push(todayCookies);
-      // add to th total
-      this.totalSoldPerDay += todayCookies;
-    }
-
-    // console.log( this.cSPH)
-  },
-
-  make() {
-    this.getTheCookiesSPH();
-    let newTable = document.getElementById("table");
-    let newRow = document.createElement("tr");
-    let newCell = document.createElement("td");
-    newCell.textContent = "Paris";
-    newRow.appendChild(newCell);
-    for (let d = 0; d < hoursOfBiz.length; d++) {
-      // const aDream = document.getElementById("table");
-      // let newRow = document.createElement("tr");
-      let newCell = document.createElement("td");
-      newCell.appendChild(newRow);
-      newCell.textContent = this.cSPH[d];
-      newRow.appendChild(newCell);
-    
-    }
-   newTable.appendChild(newRow)
-
-   let newCellT = document.createElement("td");
-   newCellT.textContent = this.totalSoldPerDay;
-   newRow.appendChild(newCellT);
-  },
-  
-};
-let limaLocation = {
-  //identify props
-  minC: 2,
-  maxC: 16,
-  avgCookieSale: 4.6,
-  cPH: [], //Customers per hour
-  cSPH: [], //Cookies so per hours
-  totalSoldPerDay: 0,
-
-  // how many people should we expects.
-  // this is step Number 1
-  theRandomCE: function () {
-    for (let j = 0; j < hoursOfBiz.length; j++) {
-      this.cPH.push(randomNumber(this.minC, this.maxC));
-      // this. means that it's getting form the object
-      // pash is going to push the random # (it mean store the arrays )
-    }
-    // console.log(this.CPH);
-  },
-  getTheCookiesSPH: function () {
-    this.theRandomCE();
-    for (let b = 0; b < hoursOfBiz.length; b++) {
-      let todayCookies = Math.floor(this.cPH[b] * this.avgCookieSale);
-      this.cSPH.push(todayCookies);
-      // add to th total
-      this.totalSoldPerDay += todayCookies;
-    }
-
-    // console.log( this.cSPH)
-  },
-
-  make() {
-    this.getTheCookiesSPH();
-    let newTable = document.getElementById("table");
-    let newRow = document.createElement("tr");
-    let newCell = document.createElement("td");
-    newCell.textContent = "Lima";
-    newRow.appendChild(newCell);
-    for (let d = 0; d < hoursOfBiz.length; d++) {
-      // const aDream = document.getElementById("table");
-      // let newRow = document.createElement("tr");
-      let newCell = document.createElement("td");
-      newCell.appendChild(newRow);
-      newCell.textContent = this.cSPH[d];
-      newRow.appendChild(newCell);
-    
-    }
-   newTable.appendChild(newRow)
-
-   let newCellT = document.createElement("td");
-   newCellT.textContent = this.totalSoldPerDay;
-   newRow.appendChild(newCellT);
-  },
-};
-let dubaiLocation = {
-  //identify props
-  minC: 11,
-  maxC: 38,
-  avgCookieSale: 3.7,
-  cPH: [], //Customers per hour
-  cSPH: [], //Cookies so per hours
-  totalSoldPerDay: 0,
-
-  // how many people should we expects.
-  // this is step Number 1
-  theRandomCE: function () {
-    for (let j = 0; j < hoursOfBiz.length; j++) {
-      this.cPH.push(randomNumber(this.minC, this.maxC));
-      // this. means that it's getting form the object
-      // pash is going to push the random # (it mean store the arrays )
-    }
-    // console.log(this.CPH);
-  },
-  getTheCookiesSPH: function () {
-    this.theRandomCE();
-    for (let b = 0; b < hoursOfBiz.length; b++) {
-      let todayCookies = Math.floor(this.cPH[b] * this.avgCookieSale);
-      this.cSPH.push(todayCookies);
-      // add to th total
-      this.totalSoldPerDay += todayCookies;
-    }
-
-    // console.log( this.cSPH)
-  },
-
-  make() {
-    this.getTheCookiesSPH();
-    let newTable = document.getElementById("table");
-    let newRow = document.createElement("tr");
-    let newCell = document.createElement("td");
-    newCell.textContent = "Dubai";
-    newRow.appendChild(newCell);
-    for (let d = 0; d < hoursOfBiz.length; d++) {
-      // const aDream = document.getElementById("table");
-      // let newRow = document.createElement("tr");
-      let newCell = document.createElement("td");
-      newCell.appendChild(newRow);
-      newCell.textContent = this.cSPH[d];
-      newRow.appendChild(newCell);
-    
-    }
-   newTable.appendChild(newRow)
-
-   let newCellT = document.createElement("td");
-   newCellT.textContent = this.totalSoldPerDay;
-   newRow.appendChild(newCellT);
-  },
-
+function makeNewLocation(evt){
+  evt.preventDefault(); // This keep the default things from happening when they should 
+  let row = document.getElementsByName("tr");
+  newTable.deleteRow(row.length - 1);
+  let nameOfL = evt.target.nameOfL.value;
+  let minC = evt.target.minC.value;
+  let maxC = evt.target.maxC.value;
+  let avgCookieSale = evt.target.avgCookieSale.value;
+  let newLocation = new LocationCS(nameOfL,minC,maxC,avgCookieSale);
+  Location.push(newLocation);
+  newLocation.make();
+  makeFooterRow();
 }
 
+let cityMaker = document.getElementById("cityMaker");
+cityMaker.addEventListener("submit", makeNewLocation ); 
 
-// Make a array where all locations will be
-let eLocations =[seattleLocation,tokyoLocation,dubaiLocation,parisLocation,limaLocation]
-// Go though every location call make to write on your HTML
- for (let index = 0; index < eLocations.length; index++) {
-   eLocations[index].make();
-  //  console.log("What is today");
- }
+
+
+
+function makeFooterRow(){
+  const footerRow = document.createElement("tr");
+  let headerFooter = document.createElement("td"); // I made a element and ...
+  headerFooter.textContent = "Total Hours"; // I put something in the element
+  footerRow.appendChild(headerFooter); // putting everything together!!! 
+
+  let grandTotal = 0;
+
+  for (let i = 0; i < hoursOfBiz.length; i++) {
+      let hourlyT = 0; // hourly Total 
+
+      for (let index = 0; index < Location.length; index++) {
+        hourlyT += Location[index].cSPH[i];
+        grandTotal += Location[index].cSPH[i];
+
+
+        console.log(Location[index]);
+       
+      }
+    headerFooter = document.createElement("th");
+    headerFooter.textContent = hourlyT;
+    footerRow.appendChild(headerFooter);
+    }
+    headerFooter = document.createElement("th");
+    headerFooter.textContent = grandTotal;
+    footerRow.appendChild(headerFooter);
+    newTable.appendChild(footerRow);
+}

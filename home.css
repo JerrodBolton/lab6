@@ -1,38 +1,79 @@
+*{
+    color: rgb(55, 94, 16);
+
+}
+body{
+    background-color: salmon;
+}
 header{
-    text-align: center;
+    text-align: right;
     padding: 20px;
     background-color: greenyellow;
     border-style: dotted;
     border-color: rgb(55, 94, 16);
     border-width: 6px;
 }
+.salmon{
+    text-align: left;
+}
 nav > a {
     text-decoration: none;
     
     padding-left: 20px;
     padding-right:20px;
-    
-    color: rgb(55, 94, 16);
  
 }
-img{
+.top {
+    text-align: center;
+}
+.bottom{
+    text-align: center;
+}
+
+/* img{
     text-align: center;
     -ms-ime-align:center;
     height: 75px;
     width: 239.500000px;
+    text-align: center;
 
+} */
+
+/* p{
+  padding: 250px;
+} */
+nav ul li{
+    display: inline;
 }
 
-h1{
-    color: rgb(55, 94, 16);
-
-}
 footer > a{
     text-decoration: none;
     padding-left: 20px;
     padding-right: 20px;
+    
 }
 
+.table{
+   
+    padding-left:150px;
+    padding-bottom: 30px;
+}
+.bag{
+    padding-right: 300px;
+
+}
+.SP > img {
+    text-decoration: none;
+    
+    padding-left: 20px;
+    padding-right:20px;
+    
+   
+
+}
+
+
+  
 
 
 footer{
@@ -42,20 +83,4 @@ footer{
     border-style: dotted;
     border-color: rgb(55, 94, 16);
     border-width: 6px;
-}
-.seattle{
-    color: rgb(55, 94, 16);
-}
-.tokyo{
-    color:lime;
-}
-.dubai{
-    color: green;
-
-}
-.paris{
-color: rgb(55, 94, 16);
-}
-.lima{
-color: lime;
 }
