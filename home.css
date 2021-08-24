@@ -2,8 +2,13 @@
     color: rgb(55, 94, 16);
 
 }
+html, 
+body {
+    height: 100%;
+}
 body{
     background-color: salmon;
+    max-height: 10px;
 }
 header{
     text-align: right;
@@ -30,18 +35,30 @@ nav > a {
     text-align: center;
 }
 
-/* img{
-    text-align: center;
-    -ms-ime-align:center;
-    height: 75px;
-    width: 239.500000px;
-    text-align: center;
+.cookies{
+    position: relative;
+    left: 30px;
+    width: 400px;
+    height: 700px;
+     
 
-} */
+}
 
-/* p{
-  padding: 250px;
-} */
+.row{
+    position: relative;
+    right: -49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    bottom: 705px;
+    
+}
+.row > img {
+    padding-bottom: 20px;
+    width: 300px;
+    
+    
+}
 nav ul li{
     display: inline;
 }
