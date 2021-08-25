@@ -1,15 +1,15 @@
 *{
     color: rgb(55, 94, 16);
+    /* width: min(90%);
+    max-width: 100%; */
+}
 
-}
-html, 
-body {
-    height: 100%;
-}
+
 body{
     background-color: salmon;
-    max-height: 10px;
+    height: 1700px;
 }
+
 header{
     text-align: right;
     padding: 20px;
@@ -18,6 +18,8 @@ header{
     border-color: rgb(55, 94, 16);
     border-width: 6px;
 }
+
+  
 .salmon{
     text-align: left;
 }
@@ -39,18 +41,17 @@ nav > a {
     position: relative;
     left: 30px;
     width: 400px;
-    height: 700px;
-     
-
+    height: 600px;
+    top: 270px;
 }
-
 .row{
-    position: relative;
-    right: -49%;
+    position: absolute;
+    left:  549px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    bottom: 705px;
+    top: 270px;
+
     
 }
 .row > img {
@@ -62,16 +63,25 @@ nav > a {
 nav ul li{
     display: inline;
 }
-
-footer > a{
-    text-decoration: none;
-    padding-left: 20px;
-    padding-right: 20px;
-    
+.paragraphs{
+    width: 500px;
+    height: 800px;
+    font-size: 28px;
 }
 
+#allImage{
+ height: 75%;
+ display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+ padding: 10px;
+ margin: 10px;
+}
+ #home{
+     position: absolute;
+     font-size: 100px;
+ }
 .table{
-   
     padding-left:150px;
     padding-bottom: 30px;
 }
@@ -84,14 +94,15 @@ footer > a{
     
     padding-left: 20px;
     padding-right:20px;
-    
-   
 
 }
 
-
-  
-
+footer > a{
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
 
 footer{
     text-align: center;
