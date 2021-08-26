@@ -1,7 +1,5 @@
 *{
     color: rgb(55, 94, 16);
-    /* width: min(90%);
-    max-width: 100%; */
 }
 
 
@@ -44,6 +42,13 @@ nav > a {
     height: 600px;
     top: 270px;
 }
+#FD {
+    margin-left: 12px;
+    padding-right: 30px;
+    width: 70px;
+  }
+  
+
 .row{
     position: absolute;
     left:  549px;
@@ -67,6 +72,7 @@ nav ul li{
     width: 500px;
     height: 800px;
     font-size: 28px;
+    left: 50px;
 }
 
 #allImage{
